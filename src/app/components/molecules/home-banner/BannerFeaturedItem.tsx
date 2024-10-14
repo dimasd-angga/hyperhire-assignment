@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
-import Card from "@/app/components/atoms/commons/Card";
-import Paragraph from "@/app/components/atoms/commons/Paragraph";
-import ImageComponent from "@/app/components/atoms/commons/ImageComponent";
+import { useEffect, useRef, useState } from 'react';
+import Card from '@/app/components/atoms/commons/Card';
+import Paragraph from '@/app/components/atoms/commons/Paragraph';
+import ImageComponent from '@/app/components/atoms/commons/ImageComponent';
 
 interface FeaturedItem {
   image: string;
@@ -18,16 +18,9 @@ interface BannerFeaturedItemProps {
 const FeaturedCard = ({ item }: { item: FeaturedItem }) => (
   <Card
     shadow="none"
-    className="min-w-[300px] h-[80px] bg-blue-500 bg-opacity-30 text-white flex items-center justify-start rounded-lg animate-fadeIn"
-  >
+    className="min-w-[300px] h-[80px] bg-blue-500 bg-opacity-30 text-white flex items-center justify-start rounded-lg animate-fadeIn">
     <div className="flex gap-4 items-center">
-      <ImageComponent
-        src={item.image}
-        alt={item.title}
-        width={56} 
-        height={56}
-        className="mr-2"
-      />
+      <ImageComponent src={item.image} alt={item.title} width={56} height={56} className="mr-2" />
       <Paragraph className="opacity-100 font-bold text-lg">{item.title}</Paragraph>
     </div>
   </Card>
@@ -45,7 +38,7 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
       setIsDragging(true);
       setStartX(e.pageX - ref.current.offsetLeft);
       setScrollLeft(ref.current.scrollLeft);
-      document.body.classList.add("no-select"); // Disable text selection globally
+      document.body.classList.add('no-select'); // Disable text selection globally
     }
   };
 
@@ -58,7 +51,7 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
 
   const stopDragging = () => {
     setIsDragging(false);
-    document.body.classList.remove("no-select"); // Re-enable text selection after drag
+    document.body.classList.remove('no-select'); // Re-enable text selection after drag
   };
 
   useEffect(() => {
@@ -68,7 +61,7 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
         setCurrentCard(nextCard);
         ref.current.scrollTo({
           left: nextCard * itemWidth,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }
     }, interval);
@@ -93,7 +86,7 @@ const BannerFeaturedItem = ({ featuredItems }: BannerFeaturedItemProps) => {
     scrollRef,
     featuredItems.length,
     cardWidth,
-    scrollInterval
+    scrollInterval,
   );
 
   return (
@@ -102,17 +95,15 @@ const BannerFeaturedItem = ({ featuredItems }: BannerFeaturedItemProps) => {
       onMouseDown={handleMouseDown}
       onMouseLeave={stopDragging}
       onMouseUp={stopDragging}
-      onMouseMove={handleMouseMove}
-    >
+      onMouseMove={handleMouseMove}>
       <div
         ref={scrollRef}
         className="flex gap-4 cursor-grab"
         style={{
-          overflowX: "auto",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-        }}
-      >
+          overflowX: 'auto',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+        }}>
         {featuredItems.map((item, index) => (
           <FeaturedCard key={index} item={item} />
         ))}

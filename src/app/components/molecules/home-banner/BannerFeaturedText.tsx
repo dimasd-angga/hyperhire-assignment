@@ -32,10 +32,9 @@ const BannerFeaturedText: React.FC<BannerFeaturedTextProps> = ({ featuredTexts }
       {featuredTexts.map((item, index) => (
         <div
           key={index}
-          className={`border-t border-white w-[160px] transition-opacity duration-500 ${visibleItems[index] ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <Paragraph className='text-md font-bold text-white text-left my-2'>{item.title}</Paragraph>
-          <Paragraph className='text-md font-bold text-white text-left my-2'>{item.description}</Paragraph>
+          className={`border-t border-white w-[160px] transition-opacity duration-500 ${visibleItems[index] ? 'opacity-100' : 'opacity-0'}`}>
+          <Paragraph className="text-md font-bold text-white text-left my-2">{item.title}</Paragraph>
+          <Paragraph className="text-md font-bold text-white text-left my-2">{item.description}</Paragraph>
         </div>
       ))}
     </div>

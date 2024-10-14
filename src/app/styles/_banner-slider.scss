@@ -1,5 +1,9 @@
-$active-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15), 0 6px 6px 0 rgba(0, 0, 0, 0.1);
-$inactive-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+$active-shadow:
+  0 10px 20px 0 rgba(0, 0, 0, 0.15),
+  0 6px 6px 0 rgba(0, 0, 0, 0.1);
+$inactive-shadow:
+  0 4px 8px 0 rgba(0, 0, 0, 0.1),
+  0 2px 2px 0 rgba(0, 0, 0, 0.05);
 $background-color: #fff;
 
 .slider {
@@ -8,7 +12,7 @@ $background-color: #fff;
   perspective: 1000px;
   transform-style: preserve-3d;
 
-  input[type="radio"] {
+  input[type='radio'] {
     display: none;
   }
 
@@ -20,7 +24,9 @@ $background-color: #fff;
     left: 0;
     right: 0;
     cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
 
     &.is-active {
       box-shadow: $active-shadow;

@@ -20,13 +20,13 @@ const BannerFeaturedItemCheck: React.FC<BannerFeaturedItemCheckProps> = ({ featu
         {featureItemChecks.map((item, index) => (
           <div key={index} className="flex items-center">
             <div className="relative flex items-center">
-              <div className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg flex items-center justify-center bg-gray-200 shadow-md"> {/* Adjusted size and styles */}
+              <div className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg flex items-center justify-center bg-gray-200 shadow-md">
+                {' '}
+                {/* Adjusted size and styles */}
                 <Check />
               </div>
             </div>
-            <Paragraph className="font-bold text-white text-sm md:text-lg ml-2">
-              {item.title}
-            </Paragraph>
+            <Paragraph className="font-bold text-white text-sm md:text-lg ml-2">{item.title}</Paragraph>
           </div>
         ))}
       </div>

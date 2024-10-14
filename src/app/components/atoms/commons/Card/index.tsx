@@ -2,13 +2,13 @@ import React from 'react';
 
 interface CardProps {
   children: React.ReactNode;
-  width?: string; 
-  height?: string; 
+  width?: string;
+  height?: string;
   className?: string;
   id?: string;
   style?: React.CSSProperties; // Allow for inline styles
   rounded?: string; // New prop for dynamic 'lg' part of the rounded class
-  shadow?: 'none' | 'sm' |'md' | 'lg'; // Simple shadow prop
+  shadow?: 'none' | 'sm' | 'md' | 'lg'; // Simple shadow prop
 }
 
 const Card: React.FC<CardProps> = ({

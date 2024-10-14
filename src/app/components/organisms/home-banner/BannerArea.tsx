@@ -2,7 +2,6 @@
 import React from 'react';
 import ImageComponent from '@/app/components/atoms/commons/ImageComponent';
 import BannerContent from '@/app/components/organisms/home-banner/BannerContent';
-import { BannerData } from '@/configs/types';
 
 interface BannerAreaProps {
   bannerTitle: React.ReactNode;
@@ -17,7 +16,7 @@ const BannerArea: React.FC<BannerAreaProps> = ({
   featuredList,
   sliderList,
   featuredItemList,
-  featuredItemCheckList
+  featuredItemCheckList,
 }) => {
   return (
     <section className="p-4 relative md:pt-[150px] pt-[100px] pb-[100px] text-center overflow-hidden bg-gradient-to-r from-blue-400 to-green-400">

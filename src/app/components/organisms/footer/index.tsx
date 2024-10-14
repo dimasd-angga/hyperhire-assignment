@@ -16,15 +16,8 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-10 items-center justify-between">
           <div className="flex md:flex-2 flex-col gap-10 w-full md:w-[30%]">
             <div className="flex flex-col gap-2 w-full md:w-[70%]">
-              <ImageComponent
-                width={187}
-                height={34}
-                src="/images/logo-horizontal-colored.png"
-                alt="logo"
-              />
-              <Paragraph className="font-bold">
-                우리는 국가의 장벽을 넘어 최고의 인재를 매칭해드립니다.
-              </Paragraph>
+              <ImageComponent width={187} height={34} src="/images/logo-horizontal-colored.png" alt="logo" />
+              <Paragraph className="font-bold">우리는 국가의 장벽을 넘어 최고의 인재를 매칭해드립니다.</Paragraph>
             </div>
             <ContactInfo phone="010-0000-0000" email="aaaaa@naver.com" />
           </div>

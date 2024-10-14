@@ -26,8 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={`${bgColor} ${hoverBgColor} ${textColor} ${fontSize} ${padding} ${radius} ${className}`}
-      onClick={onClick}
-    >
+      onClick={onClick}>
       {children}
     </button>
   );

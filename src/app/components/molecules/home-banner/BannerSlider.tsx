@@ -40,26 +40,28 @@ const Slider: FC<SliderProps> = ({ slides }) => {
     return '';
   };
 
-  const adjustHeight = () => {
-    const currentSlide = document.getElementById(`slide${slides[selectedIndex].id}`);
-    const badgeHeight = 150; // Adjust this based on your badge's height
-    if (flexContainerRef.current && currentSlide) {
-      const slideHeight = currentSlide.offsetHeight;
-      flexContainerRef.current.style.height = `${slideHeight + badgeHeight}px`;
-    }
-  };
-
+  // Move adjustHeight inside useEffect and capture flexContainerRef.current
   useEffect(() => {
-    adjustHeight();
+    const adjustHeight = () => {
+      const currentSlide = document.getElementById(`slide${slides[selectedIndex].id}`);
+      const badgeHeight = 150; // Adjust this based on your badge's height
+      if (flexContainerRef.current && currentSlide) {
+        const slideHeight = currentSlide.offsetHeight;
+        flexContainerRef.current.style.height = `${slideHeight + badgeHeight}px`;
+      }
+    };
+
+    adjustHeight(); // Call adjustHeight after defining it
 
     const resizeObserver = new ResizeObserver(adjustHeight);
-    if (flexContainerRef.current) {
-      resizeObserver.observe(flexContainerRef.current);
+    const currentRef = flexContainerRef.current; // Capture current ref value
+    if (currentRef) {
+      resizeObserver.observe(currentRef);
     }
 
     return () => {
-      if (flexContainerRef.current) {
-        resizeObserver.unobserve(flexContainerRef.current);
+      if (currentRef) {
+        resizeObserver.unobserve(currentRef);
       }
     };
   }, [selectedIndex, slides]);
@@ -71,8 +73,7 @@ const Slider: FC<SliderProps> = ({ slides }) => {
         bgColor="transparent"
         hoverBgColor="transparent"
         padding="p-0"
-        onClick={handlePrevious}
-      >
+        onClick={handlePrevious}>
         <ChevronLeftIcon />
       </Button>
 
@@ -93,11 +94,9 @@ const Slider: FC<SliderProps> = ({ slides }) => {
           <Card
             key={slide.id}
             className={`flex flex-col items-center justify-center slider-item py-10 ${getSlideClassName(index)}`}
-            id={`slide${slide.id}`}
-          >
+            id={`slide${slide.id}`}>
             <div
-              className={`absolute -top-20 transition-opacity duration-300 ${index === selectedIndex ? 'opacity-100' : 'opacity-0'}`}
-            >
+              className={`absolute -top-20 transition-opacity duration-300 ${index === selectedIndex ? 'opacity-100' : 'opacity-0'}`}>
               <BadgeArrow className="top-0 left-0">
                 <div className="flex items-center gap-3">
                   <ImageComponent
@@ -130,8 +129,7 @@ const Slider: FC<SliderProps> = ({ slides }) => {
               {slide.skillsets.map((skillset) => (
                 <span
                   key={skillset}
-                  className="text-sm md:text-lg inline-flex items-center rounded-md px-2 py-1 font-bold text-gray-500 ring-1 ring-inset ring-gray-500/50"
-                >
+                  className="text-sm md:text-lg inline-flex items-center rounded-md px-2 py-1 font-bold text-gray-500 ring-1 ring-inset ring-gray-500/50">
                   {skillset}
                 </span>
               ))}
@@ -145,8 +143,7 @@ const Slider: FC<SliderProps> = ({ slides }) => {
         bgColor="transparent"
         hoverBgColor="transparent"
         padding="p-0"
-        onClick={handleNext}
-      >
+        onClick={handleNext}>
         <ChevronRightIcon />
       </Button>
     </div>

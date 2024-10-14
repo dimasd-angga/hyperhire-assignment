@@ -18,7 +18,7 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
   badge,
   badgePosition = 'top-right', // Default badge position
   width,
-  height
+  height,
 }) => {
   // Position classes based on badgePosition prop
   const positionClasses = {
@@ -30,18 +30,8 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
 
   return (
     <div className="relative inline-block" style={{ width, height }}>
-      <Image
-        src={src}
-        alt={alt}
-        fill 
-        style={{ objectFit: 'cover' }}
-        className={className}
-      />
-      {badge && (
-        <div className={`absolute ${positionClasses[badgePosition]} p-1`}>
-          {badge}
-        </div>
-      )}
+      <Image src={src} alt={alt} fill style={{ objectFit: 'cover' }} className={className} />
+      {badge && <div className={`absolute ${positionClasses[badgePosition]} p-1`}>{badge}</div>}
     </div>
   );
 };

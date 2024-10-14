@@ -13,8 +13,7 @@ const DollarIcon: React.FC<DollarIconProps> = ({ width = '100', height = '100', 
     height={height}
     viewBox="0 0 100 100"
     className={className}
-    fill="none"
-  >
+    fill="none">
     <circle cx="50" cy="50" r="48" fill="#E6FAE7" stroke="none" />
 
     <path
