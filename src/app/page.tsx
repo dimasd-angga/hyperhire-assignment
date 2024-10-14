@@ -7,6 +7,7 @@ import Slider from '@/app/components/molecules/home-banner/BannerSlider';
 import BannerFeaturedItem from '@/app/components/molecules/home-banner/BannerFeaturedItem';
 import BannerFeaturedItemCheck from '@/app/components/molecules/home-banner/BannerFeaturedItemCheck';
 
+export const runtime = "edge";
 async function fetchData(endpoint: string) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
   const res = await fetch(`${apiUrl}/api/banner/${endpoint}`, { cache: 'no-store' });
