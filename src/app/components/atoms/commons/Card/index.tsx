@@ -6,9 +6,9 @@ interface CardProps {
   height?: string;
   className?: string;
   id?: string;
-  style?: React.CSSProperties; // Allow for inline styles
-  rounded?: string; // New prop for dynamic 'lg' part of the rounded class
-  shadow?: 'none' | 'sm' | 'md' | 'lg'; // Simple shadow prop
+  style?: React.CSSProperties; 
+  rounded?: string;
+  shadow?: 'none' | 'sm' | 'md' | 'lg';
 }
 
 const Card: React.FC<CardProps> = ({
@@ -17,9 +17,9 @@ const Card: React.FC<CardProps> = ({
   height = 'h-auto',
   className = '',
   id = '',
-  style = {}, // Default to an empty object
-  rounded = 'lg', // Default to 'lg'
-  shadow = 'lg', // Default to 'lg'
+  style = {},
+  rounded = 'lg', 
+  shadow = 'lg', 
 }) => {
   // Determine the shadow class based on the prop value
   const shadowClass = shadow === 'none' ? 'shadow-none' : `shadow-${shadow}`;
@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({
     <div
       id={id}
       className={`bg-white rounded-${rounded} ${shadowClass} p-4 ${width} ${height} ${className}`}
-      style={style} // Apply inline styles here
+      style={style}
     >
       {children}
     </div>

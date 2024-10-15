@@ -12,7 +12,6 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer flex flex-col bg-gray-100 px-5 py-10 md:py-20 md:px-20">
       <div className="flex flex-col gap-14 container max-w-7xl mx-auto">
-        {/* Logo and Contact Information */}
         <div className="flex flex-col md:flex-row gap-10 items-center justify-between">
           <div className="flex md:flex-2 flex-col gap-10 w-full md:w-[30%]">
             <div className="flex flex-col gap-2 w-full md:w-[70%]">
@@ -22,7 +21,6 @@ const Footer: React.FC = () => {
             <ContactInfo phone="010-0000-0000" email="aaaaa@naver.com" />
           </div>
 
-          {/* Feature List */}
           <div className="lg:grid lg:grid-cols-4 lg:gap-4 lg:grid-rows-1 grid grid-cols-2 gap-4 grid-rows-2">
             {featureList.map((feature) => (
               <FeatureCard key={feature.text} image={feature.image} text={feature.text} />
@@ -30,7 +28,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Company Information */}
         <div className="flex flex-col md:flex-row gap-14">
           <CompanyInfo label="상호명" title="하이퍼하이어" description="Hyperhire India Private Limited" />
           <CompanyInfo label="대표 CEO" title="김주현" description="Juhyun Kim" />
@@ -42,7 +39,6 @@ const Footer: React.FC = () => {
           />
         </div>
 
-        {/* Footer Bottom */}
         <div className="flex">
           <Paragraph className="text-sm">
             ⓒ <span className="font-black text-gray-500">2023 Hyperhire</span>

@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import ChevronDown from '@/app/components/icons/ChevronDown'; // Adjust the path as needed
-
+import ChevronDown from '@/app/components/icons/ChevronDown'; 
 interface NavLink {
   name: string;
   href: string;
@@ -16,14 +15,13 @@ const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const handleToggleDropdown = (name: string) => {
-    setOpenDropdown(openDropdown === name ? null : name); // Toggle the dropdown on mobile
+    setOpenDropdown(openDropdown === name ? null : name);
   };
 
   return (
     <ul className="flex flex-col md:flex-row md:space-x-8">
       {links.map((link) => (
         <li key={link.name} className="relative group">
-          {/* On desktop: hover to show dropdown | On mobile: click to show dropdown */}
           <button
             onClick={() => handleToggleDropdown(link.name)}
             className="font-bold text-black md:text-white block py-2 flex items-center">
@@ -31,7 +29,6 @@ const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
             {link.children && <ChevronDown />}
           </button>
 
-          {/* Mobile dropdown on click, desktop dropdown on hover */}
           {link.children && (
             <ul
               className={`${

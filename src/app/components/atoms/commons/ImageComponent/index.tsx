@@ -5,10 +5,10 @@ interface ImageComponentProps {
   src: string;
   alt: string;
   className?: string;
-  badge?: React.ReactNode; // Badge as a dynamic component
-  badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'; // Define badge positions
-  width: number | string; // Explicit width
-  height: number | string; // Explicit height
+  badge?: React.ReactNode;
+  badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'; 
+  width: number | string; 
+  height: number | string;
 }
 
 const ImageComponent: React.FC<ImageComponentProps> = ({
@@ -16,11 +16,11 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
   alt,
   className = '',
   badge,
-  badgePosition = 'top-right', // Default badge position
+  badgePosition = 'top-right',
   width,
   height,
 }) => {
-  // Position classes based on badgePosition prop
+
   const positionClasses = {
     'top-right': 'top-0 right-0',
     'top-left': 'top-0 left-0',

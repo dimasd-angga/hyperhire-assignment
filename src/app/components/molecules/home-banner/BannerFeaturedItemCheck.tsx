@@ -4,7 +4,6 @@ import React from 'react';
 import Paragraph from '@/app/components/atoms/commons/Paragraph';
 import Check from '@/app/components/icons/Check';
 
-// Define the type for the prop
 interface FeaturedItemCheck {
   title: string;
 }
@@ -22,7 +21,6 @@ const BannerFeaturedItemCheck: React.FC<BannerFeaturedItemCheckProps> = ({ featu
             <div className="relative flex items-center">
               <div className="h-7 w-7 md:h-10 md:w-10 rounded-md md:rounded-lg flex items-center justify-center bg-gray-200 shadow-md">
                 {' '}
-                {/* Adjusted size and styles */}
                 <Check />
               </div>
             </div>

@@ -12,18 +12,16 @@ const BannerFeaturedText: React.FC<BannerFeaturedTextProps> = ({ featuredTexts }
   const [visibleItems, setVisibleItems] = useState<boolean[]>([]);
 
   useEffect(() => {
-    // Reset visibility when lists change
     setVisibleItems(Array(featuredTexts.length).fill(false));
 
-    // Fade in items one by one
     featuredTexts.forEach((_, index) => {
       setTimeout(() => {
         setVisibleItems((prev) => {
           const newVisibleItems = [...prev];
-          newVisibleItems[index] = true; // Set the current index to true
+          newVisibleItems[index] = true; 
           return newVisibleItems;
         });
-      }, index * 500); // 500ms delay per item
+      }, index * 500); 
     });
   }, [featuredTexts]);
 

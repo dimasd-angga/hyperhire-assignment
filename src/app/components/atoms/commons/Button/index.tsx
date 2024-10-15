@@ -4,12 +4,12 @@ type ButtonProps = {
   onClick: () => void;
   className?: string;
   children: React.ReactNode;
-  bgColor?: string; // Allow custom background color
-  hoverBgColor?: string; // Allow custom hover background color
-  textColor?: string; // Allow custom text color
-  padding?: string; // Allow custom padding
-  radius?: string; // Allow custom border-radius
-  fontSize?: string; // Allow custom font-size
+  bgColor?: string; 
+  hoverBgColor?: string;
+  textColor?: string;
+  padding?: string;
+  radius?: string;
+  fontSize?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({

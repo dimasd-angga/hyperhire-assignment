@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
             alt="Logo"
             width={150}
             height={40}
-            className="w-auto h-auto" // Ensure both width and height are auto in CSS
+            className="w-auto h-auto"
           />
         </div>
 

@@ -14,7 +14,6 @@ interface BannerFeaturedItemProps {
   featuredItems: FeaturedItem[];
 }
 
-// Atom Level Component: FeaturedCard
 const FeaturedCard = ({ item }: { item: FeaturedItem }) => (
   <Card
     shadow="none"
@@ -26,7 +25,6 @@ const FeaturedCard = ({ item }: { item: FeaturedItem }) => (
   </Card>
 );
 
-// Custom Hook for Scroll Logic
 const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, itemWidth: number, interval: number) => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -38,7 +36,7 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
       setIsDragging(true);
       setStartX(e.pageX - ref.current.offsetLeft);
       setScrollLeft(ref.current.scrollLeft);
-      document.body.classList.add('no-select'); // Disable text selection globally
+      document.body.classList.add('no-select'); 
     }
   };
 
@@ -51,7 +49,7 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
 
   const stopDragging = () => {
     setIsDragging(false);
-    document.body.classList.remove('no-select'); // Re-enable text selection after drag
+    document.body.classList.remove('no-select');
   };
 
   useEffect(() => {
@@ -76,12 +74,11 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
   };
 };
 
-// Main Component
 const BannerFeaturedItem = ({ featuredItems }: BannerFeaturedItemProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const cardWidth = 300 + 16; // Card width + gap
-  const scrollInterval = 5000; // Scroll interval in ms
-
+  const cardWidth = 300 + 16; 
+  const scrollInterval = 5000;
+  
   const { handleMouseDown, handleMouseMove, stopDragging } = useScroll(
     scrollRef,
     featuredItems.length,
