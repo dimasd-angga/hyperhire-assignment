@@ -1,52 +1,59 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import NavLinks from '@/app/components/molecules/nav-links';
 import { navLinks } from '@/configs/navigation-link';
+import CloseIcon from '@/app/components/icons/Close';
+import MenuIcon from '@/app/components/icons/Hamburger';
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Set the threshold when the navbar background should change
+      const threshold = 10;
+      if (window.scrollY > threshold) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-transparent absolute top-0 left-0 w-full p-4 z-20">
+    <nav
+      className={`${isScrolled ? 'bg-white' : 'bg-transparent'} fixed top-0 left-0 w-full p-4 z-20 transition-colors duration-300`}>
       <div className="container max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <Image src="/images/logo-horizontal.png" alt="Logo" width={150} height={40} className="w-auto h-auto" />
+          <Image
+            src={isScrolled ? '/images/logo-horizontal-colored.png' : '/images/logo-horizontal.png'}
+            alt="Logo"
+            width={isScrolled ? 150 : 150}
+            height={40}
+          />
         </div>
 
         <div className="md:hidden">
-          <button className="text-white focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            )}
+          <button className="text-blue-600 focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
 
         <div className="hidden md:flex flex-grow justify-center">
-          <NavLinks links={navLinks} />
+          <NavLinks links={navLinks} isScrolled={isScrolled} />
         </div>
 
         <div className="hidden md:block">
-          <button className="bg-white font-bold text-blue-600 px-4 py-2 rounded-md hover:bg-gray-100 transition">
+          <button
+            className={`${isScrolled ? 'bg-blue-600' : 'bg-white'} font-bold ${isScrolled ? 'text-white' : 'text-blue-600'} px-4 py-2 rounded-md hover:bg-gray-100 transition`}>
             문의하기
           </button>
         </div>

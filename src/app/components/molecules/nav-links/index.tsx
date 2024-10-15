@@ -9,9 +9,10 @@ interface NavLink {
 
 interface NavLinksProps {
   links: NavLink[];
+  isScrolled?: boolean;
 }
 
-const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
+const NavLinks: React.FC<NavLinksProps> = ({ links, isScrolled }) => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const handleToggleDropdown = (name: string) => {
@@ -24,7 +25,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ links }) => {
         <li key={link.name} className="relative group">
           <button
             onClick={() => handleToggleDropdown(link.name)}
-            className="font-bold text-black md:text-white block py-2 flex items-center">
+            className={`font-bold text-black md:${isScrolled ? 'text-black' : 'text-white'} block py-2 flex items-center`}>
             {link.name}
             {link.children && <ChevronDown />}
           </button>
