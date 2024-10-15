@@ -4,7 +4,7 @@ type ButtonProps = {
   onClick: () => void;
   className?: string;
   children: React.ReactNode;
-  bgColor?: string; 
+  bgColor?: string;
   hoverBgColor?: string;
   textColor?: string;
   padding?: string;

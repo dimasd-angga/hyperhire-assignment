@@ -6,7 +6,7 @@ interface CardProps {
   height?: string;
   className?: string;
   id?: string;
-  style?: React.CSSProperties; 
+  style?: React.CSSProperties;
   rounded?: string;
   shadow?: 'none' | 'sm' | 'md' | 'lg';
 }
@@ -18,8 +18,8 @@ const Card: React.FC<CardProps> = ({
   className = '',
   id = '',
   style = {},
-  rounded = 'lg', 
-  shadow = 'lg', 
+  rounded = 'lg',
+  shadow = 'lg',
 }) => {
   // Determine the shadow class based on the prop value
   const shadowClass = shadow === 'none' ? 'shadow-none' : `shadow-${shadow}`;
@@ -28,8 +28,7 @@ const Card: React.FC<CardProps> = ({
     <div
       id={id}
       className={`bg-white rounded-${rounded} ${shadowClass} p-4 ${width} ${height} ${className}`}
-      style={style}
-    >
+      style={style}>
       {children}
     </div>
   );

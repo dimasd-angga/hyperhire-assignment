@@ -43,7 +43,7 @@ const Slider: FC<SliderProps> = ({ slides }) => {
   useEffect(() => {
     const adjustHeight = () => {
       const currentSlide = document.getElementById(`slide${slides[selectedIndex].id}`);
-      const badgeHeight = 150; 
+      const badgeHeight = 150;
       if (flexContainerRef.current && currentSlide) {
         const slideHeight = currentSlide.offsetHeight;
         flexContainerRef.current.style.height = `${slideHeight + badgeHeight}px`;
@@ -53,7 +53,7 @@ const Slider: FC<SliderProps> = ({ slides }) => {
     adjustHeight();
 
     const resizeObserver = new ResizeObserver(adjustHeight);
-    const currentRef = flexContainerRef.current; 
+    const currentRef = flexContainerRef.current;
     if (currentRef) {
       resizeObserver.observe(currentRef);
     }

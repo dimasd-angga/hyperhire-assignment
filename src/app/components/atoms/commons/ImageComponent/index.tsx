@@ -6,8 +6,8 @@ interface ImageComponentProps {
   alt: string;
   className?: string;
   badge?: React.ReactNode;
-  badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'; 
-  width: number | string; 
+  badgePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  width: number | string;
   height: number | string;
 }
 
@@ -20,7 +20,6 @@ const ImageComponent: React.FC<ImageComponentProps> = ({
   width,
   height,
 }) => {
-
   const positionClasses = {
     'top-right': 'top-0 right-0',
     'top-left': 'top-0 left-0',

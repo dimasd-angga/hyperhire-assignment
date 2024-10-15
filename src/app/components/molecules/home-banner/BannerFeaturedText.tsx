@@ -18,10 +18,10 @@ const BannerFeaturedText: React.FC<BannerFeaturedTextProps> = ({ featuredTexts }
       setTimeout(() => {
         setVisibleItems((prev) => {
           const newVisibleItems = [...prev];
-          newVisibleItems[index] = true; 
+          newVisibleItems[index] = true;
           return newVisibleItems;
         });
-      }, index * 500); 
+      }, index * 500);
     });
   }, [featuredTexts]);
 

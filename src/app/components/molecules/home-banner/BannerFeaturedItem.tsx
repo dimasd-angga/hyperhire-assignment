@@ -36,7 +36,7 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
       setIsDragging(true);
       setStartX(e.pageX - ref.current.offsetLeft);
       setScrollLeft(ref.current.scrollLeft);
-      document.body.classList.add('no-select'); 
+      document.body.classList.add('no-select');
     }
   };
 
@@ -76,9 +76,9 @@ const useScroll = (ref: React.RefObject<HTMLDivElement>, itemCount: number, item
 
 const BannerFeaturedItem = ({ featuredItems }: BannerFeaturedItemProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const cardWidth = 300 + 16; 
+  const cardWidth = 300 + 16;
   const scrollInterval = 5000;
-  
+
   const { handleMouseDown, handleMouseMove, stopDragging } = useScroll(
     scrollRef,
     featuredItems.length,

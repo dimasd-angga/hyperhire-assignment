@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import ChevronDown from '@/app/components/icons/ChevronDown'; 
+import ChevronDown from '@/app/components/icons/ChevronDown';
 interface NavLink {
   name: string;
   href: string;

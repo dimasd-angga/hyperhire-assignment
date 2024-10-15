@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface CheckProps {
-  size?: number; 
+  size?: number;
 }
 
 const Check: React.FC<CheckProps> = ({ size = 24 }) => (

@@ -12,13 +12,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-transparent absolute top-0 left-0 w-full p-4 z-20">
       <div className="container max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <Image
-            src="/images/logo-horizontal.png"
-            alt="Logo"
-            width={150}
-            height={40}
-            className="w-auto h-auto"
-          />
+          <Image src="/images/logo-horizontal.png" alt="Logo" width={150} height={40} className="w-auto h-auto" />
         </div>
 
         <div className="md:hidden">
